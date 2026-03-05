@@ -13,7 +13,7 @@ st.set_page_config(
 )
 
 # -------------------------
-# CSS
+# CSS Style
 # -------------------------
 st.markdown("""
 <style>
@@ -46,11 +46,11 @@ st.markdown('<p class="main-title">🤖 AI Smart Time Bank System</p>', unsafe_a
 st.write("ระบบจับคู่การช่วยเหลือผู้สูงอายุด้วย **Artificial Intelligence Matching Algorithm**")
 
 # -------------------------
-# Load Excel Data
+# Load Data
 # -------------------------
 df = pd.read_csv("ai_timebank_volunteers_updated.csv")
 
-# เปลี่ยนชื่อ column
+# เปลี่ยนชื่อ column ให้สั้นลง
 df = df.rename(columns={
     "ระยะทาง_km":"ระยะทาง",
     "คะแนนรีวิว":"รีวิว",
@@ -72,11 +72,20 @@ service_cols = [
 # -------------------------
 # AI MODEL
 # -------------------------
+
+# Feature ที่ใช้ train AI
 X = df[service_cols + ["ระยะทาง","รีวิว","งานสำเร็จ"]]
 
+# Target Score
 y = df["รีวิว"]*5 + df["งานสำเร็จ"]*0.2 - df["ระยะทาง"]
 
-model = RandomForestRegressor()
+# สร้างโมเดล AI
+model = RandomForestRegressor(
+    n_estimators=100,
+    random_state=42
+)
+
+# Train Model
 model.fit(X,y)
 
 # -------------------------
@@ -96,7 +105,10 @@ with col1:
         service_cols
     )
 
-    distance = st.slider("ระยะทางสูงสุด",1,10,5)
+    distance = st.slider(
+        "ระยะทางสูงสุด (km)",
+        1,10,5
+    )
 
     search = st.button("🔍 ค้นหาอาสาสมัคร")
 
@@ -109,24 +121,35 @@ with col2:
 
 if search:
 
+    # กรองตามระยะทาง
     df2 = df[df["ระยะทาง"] <= distance].copy()
 
-    # กรองประเภทบริการ
+    # กรองตามประเภทบริการ
     df2 = df2[df2[service] == 1]
 
     if len(df2) == 0:
+
         st.error("ไม่พบอาสาสมัครในระยะที่กำหนด")
 
     else:
 
+        # -------------------------
         # AI Prediction
+        # -------------------------
+
         X_pred = df2[service_cols + ["ระยะทาง","รีวิว","งานสำเร็จ"]]
 
         df2["AI Score"] = model.predict(X_pred)
 
-        # Final Score (เน้นรีวิวมากกว่า AI)
-        df2["Final Score"] = (df2["รีวิว"] * 5) + df2["AI Score"]
+        # สูตรคะแนนใหม่ (ดูเป็น AI มากขึ้น)
+        df2["Final Score"] = (
+            df2["AI Score"] * 0.5 +
+            df2["รีวิว"] * 10 +
+            df2["งานสำเร็จ"] * 0.1 -
+            df2["ระยะทาง"] * 2
+        )
 
+        # เรียงคะแนน
         df2 = df2.sort_values("Final Score", ascending=False)
 
         best = df2.iloc[0]
@@ -134,26 +157,46 @@ if search:
         # -------------------------
         # Best Volunteer Card
         # -------------------------
+
         st.markdown(f"""
         <div class="card">
         <p class="big-font">🏆 อาสาสมัครที่เหมาะสมที่สุด</p>
+
         👤 {best['ชื่อ']} <br>
         ⭐ รีวิว {best['รีวิว']} <br>
         📍 ระยะทาง {best['ระยะทาง']} km <br>
         🤖 AI Score {round(best['AI Score'],2)} <br>
         🏆 Final Score {round(best['Final Score'],2)}
+
         </div>
         """, unsafe_allow_html=True)
 
         # -------------------------
         # จำนวนอาสาสมัคร
         # -------------------------
+
         st.metric(
             label="👥 จำนวนอาสาสมัครที่พบ",
             value=len(df2)
-)
+        )
+
+        # -------------------------
+        # Ranking Graph
+        # -------------------------
+
+        fig = px.bar(
+            df2.head(10),
+            x="ชื่อ",
+            y="Final Score",
+            color="Final Score",
+            title="Top AI Volunteer Ranking"
+        )
+
+        st.plotly_chart(fig, use_container_width=True)
+
         # -------------------------
         # Table
         # -------------------------
+
         st.markdown("### 📊 Volunteer Data")
         st.dataframe(df2)
