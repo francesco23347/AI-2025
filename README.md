@@ -3,9 +3,13 @@
 
 ## 🚀 ฟีเจอร์หลัก (Features)
 • AI Matching System – ใช้ Machine Learning เพื่อเลือกอาสาสมัครที่เหมาะสมที่สุด
+
 • Service Filtering – ค้นหาอาสาสมัครตามประเภทบริการ
+
 • Distance Filtering – จำกัดระยะทางของอาสาสมัคร
+
 • Smart Ranking – จัดอันดับอาสาสมัครด้วย AI Score
+
 • Data Dashboard – แสดงข้อมูลผ่านกราฟและตาราง
      
 ## 🛠️ เทคโนโลยีที่ใช้ (Tech Stack)
