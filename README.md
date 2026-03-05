@@ -26,6 +26,7 @@
 
 **เอกสารอ้างอิง**
    - แนวทางการเขียนโค้ดมาจาก ChatGPT
+   - Data ทำการสุ่มขึ้นมา
 
 1. **Clone repository นี้:**
    [```[bash](https://github.com/francesco23347/AI-2025)]
