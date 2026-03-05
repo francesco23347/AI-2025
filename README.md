@@ -30,5 +30,4 @@
 1. **Clone repository นี้:**
    [```[bash](https://github.com/francesco23347/AI-2025)]
 
-**สะท้อนความคิด**
-
+ เว็บที่ได้ https://ai-2025-buytpazhuwuwqznu48ogjb.streamlit.app/
