@@ -1,5 +1,5 @@
 # AI-2025
-<img width="652" height="863" alt="image" src="https://github.com/user-attachments/assets/ad020c7e-ba32-427a-837a-454b73902c25" />
+<img width="977" height="567" alt="image" src="https://github.com/user-attachments/assets/da0c741f-48dc-447c-809b-c775d825be31" />
 
 ## 🚀 ฟีเจอร์หลัก (Features)
 1. ระบบช่วยวางแผนและจัดตารางอ่านหนังสือ (Core Scheduling)
