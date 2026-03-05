@@ -33,24 +33,16 @@
 
    - โหลด [python](https://www.python.org/downloads) 
    - ติดตั้ง [VScode](https://code.visualstudio.com/download) 
-   - ทำการสกัดข้อมูลใน VScode ด้วยภาษา python https://github.com/francesco23347/Design-Thinking-2025/blob/main/app.py
-   - เชื่อม Steamlit กับ github เพื่อทำหน้าเว็ป https://share.streamlit.io/?utm_source=streamlit&utm_medium=referral&utm_campaign=main&utm_content=-ss-streamlit-io-topright
-   - นำไฟล์ที่ได้จากการ scraping มาอัปโหลดใน github เพื่อมาใช้ในการสร้างเว็ป
-   - เว็ปที่ได้ https://design-thinking-2025-lyrsczs7n3ttncenyac2rq.streamlit.app/
+   - เชื่อม [Steamlit](https://share.streamlit.io/?utm_source=streamlit&utm_medium=referral&utm_campaign=main&utm_content=-ss-streamlit-io-topright) กับ github เพื่อทำหน้าเว็ป 
+   - เว็ปที่ได้ 
 
 **เอกสารอ้างอิง**
-   - เว็ปที่ใช้ในการ scraping ข้อมูล https://easytimetable.pro/education-timetable-generator/
    - Source code ที่ใช่ในการ scraping ข้อมูล และการสร้างเว็ป มาจาก ChatGPT
 
 1. **Clone repository นี้:**
-   [```bash](https://github.com/francesco23347/Design-Thinking-2025)
+   [```[bash](https://github.com/francesco23347/AI-2025)]
 
 **สะท้อนความคิด**
-
-**ศศิวิมล มงคลสวัสดิ์**
-     จากโครงงานนี้ได้สร้างเว็บที่ใช้งานตั้งแต่การเพิ่มข้อมูลไปจนถึงการลบและแก้ไข การใช้หน้าจอเดียวในการทำทุกอย่างช่วยให้ผู้ใช้งานไม่ต้องเปลี่ยนหน้าไปมา และการเชื่อมโยงข้อมูลเข้ากับตาราง 24 ชั่วโมง ช่วยให้เห็นภาพรวมของเวลาที่ว่างและเวลาที่ถูกจองไว้ได้อย่างชัดเจน
-     จุดที่ต้องระวังคือการจองเวลาทับซ้อนกัน ทำให้วิชาใหม่อาจไปแสดงผลทับวิชาเก่าในช่องเดียวกันได้
-     ควรแก้ไขการปรับปรุงหน้าตาตารางเวลา ให้แสดงเฉพาะช่วงเวลาที่มีการเรียนจริง (เช่น 08:00 - 20:00) จะช่วยให้ตารางดูสะอาดตาและอ่านง่ายขึ้น
 
 **ฟรานเชสโก วาเลนเต**
       จากการทำงานโครงงานนี้ ทำให้ได้เขียน Web Scraping  และได้พัฒนาเว็บด้วยภาษา Python รวมถึงการใช้งาน Github และ Streamlit เพื่อจัดการโค้ดและทำงานร่วมกับคนอื่น การแบ่งงานที่ตรงลงกันและแบ่งงานกันเพื่อให้ทำงานเป็นทีม ถ้าได้มีการทำงานร่วมกับเพื่อนอีกจะกลับมาแก้ไขและปรับปรุงจุดที่ผิดพลาด เพื่อให้ผลงานมันออกมาดีกว่าที่ผ่านมา
