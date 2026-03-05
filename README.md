@@ -39,7 +39,7 @@
    - เว็ปที่ได้ 
 
 **เอกสารอ้างอิง**
-   - Source code ที่ใช่ในการ scraping ข้อมูล และการสร้างเว็ป มาจาก ChatGPT
+   - แนวทางการเขียนโค้ดมาจาก ChatGPT
 
 1. **Clone repository นี้:**
    [```[bash](https://github.com/francesco23347/AI-2025)]
