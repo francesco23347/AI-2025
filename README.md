@@ -1,5 +1,5 @@
 # AI-2025
-<img width="977" height="567" alt="image" src="https://github.com/user-attachments/assets/da0c741f-48dc-447c-809b-c775d825be31" />
+<img width="1005" height="689" alt="image" src="https://github.com/user-attachments/assets/04ceecf7-a97c-405b-be79-77b593b9a96b" />
 
 ## 🚀 ฟีเจอร์หลัก (Features)
 • AI Matching System – ใช้ Machine Learning เพื่อเลือกอาสาสมัครที่เหมาะสมที่สุด
